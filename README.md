@@ -7,3 +7,10 @@ Later I found a nice article showing https://www.chezmoi.io/
 ```
 dnf install -y curl git util-linux
 ```
+User must be in group `wheel` for being able to `sudo`.
+
+# Install #
+```
+sh -c "$(curl -fsLS https://chezmoi.io/get)"
+chezmoi init jometzner --apply
+```
