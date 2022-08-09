@@ -1,0 +1,38 @@
+
+
+
+POST https://jmetznernb.localdev.intershop.de:9443/INTERSHOP/rest/WFS/inSPIRED-inTRONICS-Site/rest/token HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=patricia@test.intershop.de&password=!InterShop00!
+
+
+
+GET https://jmetznernb.dhcp.j.ad.intershop.net:9443/INTERSHOP/rest/WFS/inSPIRED-inTRONICS-Site/rest/personalization HTTP/1.1
+Content-Type: application/json
+Authorization: BASIC cGF0cmljaWFAdGVzdC5pbnRlcnNob3AuZGU6IUludGVyU2hvcDAwIQ==
+
+
+GET https://jmetznernb.localdev.intershop.de:9443/INTERSHOP/rest/WFS/inSPIRED-inTRONICS-Site/rest/customers/-/ HTTP/1.1
+Content-Type: application/json
+Authorization: BASIC cGF0cmljaWFAdGVzdC5pbnRlcnNob3AuZGU6IUludGVyU2hvcDAh
+
+
+GET https://jmetznernb.dhcp.j.ad.intershop.net:9443/INTERSHOP/rest/WFS/SMC/-/domains/SLDSystem/jobs/Rebuild%20Search%20Indexes HTTP/1.1
+Content-Type: application/json
+Authorization: BASIC YWRtaW46IUludGVyU2hvcDAwIQ==
+
+PUT https://jmetznernb.dhcp.j.ad.intershop.net:9443/INTERSHOP/rest/WFS/SMC/-/domains/SLDSystem/jobs/Rebuild%20Search%20Indexes HTTP/1.1
+Content-Type: application/json
+Authorization: BASIC YWRtaW46IUludGVyU2hvcDAwIQ==
+
+{ "status": "RUNNING" }
+
+GET https://jmetznernb.dhcp.j.ad.intershop.net:9443/INTERSHOP/rest/WFS/inSPIRED-inTRONICS-Site/rest;loc=en_US;cur=USD/products;spgid=NORMAN-IST-DERBESTE/6946441 HTTP/1.1
+Authorization: BASIC ai5mZW5kZXJAdGVzdC5pbnRlcnNob3AuZGU6IUludGVyU2hvcDAwIQ==
+
+
+
+GET http://pwa-main.local/home?utm HTTP/1.1
+User-Agent: google
+

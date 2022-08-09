@@ -1,0 +1,24 @@
+[user]
+	email = J.Metzner@intershop.de
+	name = Johannes Metzner
+[imap]
+	folder = /Drafts
+	host = imaps://mymail.intershop.de
+	user = jmetzner
+	port = 993
+	sslverify = false
+[credential "https://gitlab.intershop.de"]
+	username = jmetzner
+[core]
+	autocrlf = input
+[credential]
+	helper = cache
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = "code --wait "

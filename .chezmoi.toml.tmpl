@@ -1,0 +1,7 @@
+{{- $email := promptString "Used Email" -}}
+[data]
+  email = {{ $email | quote }}
+[gpg]
+  recipient = "jm@jometzner.de"
+[keeper]
+  args = ["--config", "{{ .chezmoi.homeDir }}/config.json"]

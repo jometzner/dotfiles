@@ -1,0 +1,7 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/bin/bash
+{{ if (eq .chezmoi.osRelease.id "fedora") -}}
+$(which gem >/dev/null 2>&1) || sudo dnf install -y redhat-rpm-config ruby-devel
+gem install -n .local/bin colorls
+{{ end -}}
+{{- end -}}
