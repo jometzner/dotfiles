@@ -46,7 +46,3 @@
     url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip"
     exact = true
     include = ["Hack Regular Nerd Font Complete.ttf"]
-[".local/bin"]
-    type = "archive"
-    url = "https://github.com/PaulJuliusMartinez/jless/releases/download/v0.8.0/jless-v0.8.0-x86_64-unknown-linux-gnu.zip"
-    exact = true
