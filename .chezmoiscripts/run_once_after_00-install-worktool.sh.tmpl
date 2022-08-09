@@ -1,0 +1,11 @@
+#!/bin/bash
+set -ev pipefail
+if [ ! $(which wt 2>/dev/null) ]; then
+	git clone $(cat {{ .chezmoi.homeDir }}/work/dotfiles-repo.url) {{ .chezmoi.homeDir }}/work/.dotfiles
+	cd {{ .chezmoi.homeDir }}/work/.dotfiles/scripts
+	./install.sh
+fi
+
+if [ ! -d {{ .chezmoi.homeDir }}/work/wildcard-certificates ]; then
+	git clone $(cat {{ .chezmoi.homeDir }}/work/wildcard-certificates-repo.url) {{ .chezmoi.homeDir }}/work/wildcard-certificates
+fi
