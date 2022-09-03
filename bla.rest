@@ -1,10 +1,21 @@
 
+GET https://pwa-ish-demo.test.intershop.com/INTERSHOP/rest/WFS/inSPIRED-inTRONICS_Business-Site/rest/customers/-/ HTTP/1.1
+Content-Type: application/json
+authentication-token: encryption0@PBEWithMD5AndTripleDES:+GDTALm10ac=|r4cuIJIRaqdxMvG1DIQg+ktXVOWWIOOm3grkgEIXyprl/wMGE//mtX0iUXXtIF1g
 
+PUT https://pwa-ish-demo.test.intershop.com/INTERSHOP/rest/WFS/inSPIRED-inTRONICS_Business-Site/rest/token/logout HTTP/1.1
+Content-Type: application/json
+authentication-token: encryption0@PBEWithMD5AndTripleDES:+GDTALm10ac=|r4cuIJIRaqdxMvG1DIQg+ktXVOWWIOOm3grkgEIXyprl/wMGE//mtX0iUXXtIF1g
 
-POST https://jmetznernb.localdev.intershop.de:9443/INTERSHOP/rest/WFS/inSPIRED-inTRONICS-Site/rest/token HTTP/1.1
+POST https://pwa-ish-demo.test.intershop.com/INTERSHOP/rest/WFS/inSPIRED-inTRONICS_Business-Site/rest/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=password&username=patricia@test.intershop.de&password=!InterShop00!
+grant_type=refresh_token&refresh_token=encryption0%40PBEWithMD5AndTripleDES%3AWeQHQ7EMeVQ%3D%7C2CV5hwG1C2WEMU2hPRb7pYLkECFvR3M1FOWbOmlylx8n5cYtpxqrVQQ7feBO3tDj
+
+POST https://jmetznernb.localdev.intershop.de:9443/INTERSHOP/rest/WFS/inSPIRED-inTRONICS_Business-Site/rest/token HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&scope=openid%20profile%20email%20voucher%20offline_access&client_id=&username=pmiller%40test.intershop.de&password=!InterShop00!
 
 
 
@@ -35,4 +46,5 @@ Authorization: BASIC ai5mZW5kZXJAdGVzdC5pbnRlcnNob3AuZGU6IUludGVyU2hvcDAwIQ==
 
 GET http://pwa-main.local/home?utm HTTP/1.1
 User-Agent: google
+
 
