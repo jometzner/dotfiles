@@ -17,4 +17,4 @@ jobs:
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.2
         with:
-          runCmd: chezmoi init .
+          runCmd: chezmoi init /workspaces/dotfiles
