@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout (GitHub)
         uses: actions/checkout@v2
+        with:
+          token: "${{secrets.COMMIT_SECRET}}"
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.2
         with:
