@@ -32,6 +32,11 @@
     [".local/bin/kubectx".filter]
         command = "tar"
         args = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "kubectx"]
+[".local/bin/kubelogin"]
+    type = "archive"
+    url = "https://github.com/Azure/kubelogin/releases/download/v0.0.20/kubelogin-linux-amd64.zip"
+    executable = true
+	stripComponents = 2
 [".oh-my-zsh/custom/plugins/zdharma-continuum/fast-syntax-highlighting"]
     type = "git-repo"
     url = "https://github.com/zdharma-continuum/fast-syntax-highlighting.git"
