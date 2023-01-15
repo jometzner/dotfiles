@@ -1,14 +1,12 @@
 [user]
-	email = J.Metzner@intershop.de
+	email = {{ .email }}
 	name = Johannes Metzner
 [imap]
 	folder = /Drafts
-	host = imaps://mymail.intershop.de
-	user = jmetzner
+	host = imaps://outlook.office365.com
+	user = {{ .email }}
 	port = 993
 	sslverify = false
-[credential "https://gitlab.intershop.de"]
-	username = jmetzner
 [core]
 	autocrlf = input
 [credential]
