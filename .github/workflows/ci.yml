@@ -19,6 +19,7 @@ jobs:
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.3
         with:
+          push: never
           runCmd: |
             mkdir ~/.ssh
             ssh-keyscan github.com > ~/.ssh/known_hosts
