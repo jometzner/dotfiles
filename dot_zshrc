@@ -105,6 +105,7 @@ plugins=(
   git
   direnv
   globalias
+  aws
 )
 
 source ~/.oh-my-zsh/custom/plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
