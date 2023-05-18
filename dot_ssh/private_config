@@ -8,3 +8,9 @@ Host ssh.dev.azure.com
   IdentitiesOnly yes
   PubkeyAcceptedAlgorithms +rsa-sha2-256,rsa-sha2-512,ssh-rsa
   HostKeyAlgorithms +ssh-rsa
+
+Host *.indicloud.net
+  IdentityFile ~/.ssh/id_rsa
+  IdentitiesOnly yes
+  PubkeyAcceptedAlgorithms +rsa-sha2-256,rsa-sha2-512,ssh-rsa
+  HostKeyAlgorithms +ssh-rsa
