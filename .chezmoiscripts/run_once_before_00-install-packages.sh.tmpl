@@ -30,7 +30,11 @@
      "docker-ce"
      "docker-ce-cli"
      "containerd.io"
-     "docker-compose-plugin" -}}
+     "docker-compose-plugin"
+     "yubikey-manager" 
+     "libaio"
+     "libnsl"
+     "dnf-plugin-copr" -}}
 
 {{ $sudo := "sudo " -}}
 {{ if eq .chezmoi.username "root" -}}
