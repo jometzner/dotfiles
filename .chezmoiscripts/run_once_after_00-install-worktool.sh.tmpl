@@ -2,6 +2,6 @@
 set -ev pipefail
 if [ ! $(which wt 2>/dev/null) ]; then
 	git clone $(cat {{ .chezmoi.homeDir }}/work/dotfiles-repo.url) {{ .chezmoi.homeDir }}/work/.dotfiles
-	pip3 install {{ .chezmoi.homeDir }}/work/.dotfiles/scripts
+	pip3 install {{ .chezmoi.homeDir }}/work/.dotfiles
 	keeper --config ~/config.json download-attachment --out-dir {{ .chezmoi.homeDir }}/work/.dotfiles/license Lizenz/Intershop\ Lizenz
 fi
