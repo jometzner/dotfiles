@@ -18,6 +18,10 @@
     type = "git-repo"
     url = "https://github.com/zsh-users/zsh-history-substring-search.git"
     refreshPeriod = "168h"
+["work/aws-cli"]
+    type = "git-repo"
+    url = "https://github.com/aws/aws-cli.git"
+    refreshPeriod = "168h"
 [".local/bin/kubens"]
     type = "file"
     url = "https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens_v0.9.4_linux_x86_64.tar.gz"
@@ -38,11 +42,11 @@
     refreshPeriod = "168h"
 [".oh-my-zsh/custom/themes/powerlevel10k"]
     type = "archive"
-    url = "https://github.com/romkatv/powerlevel10k/archive/v1.15.0.tar.gz"
+    url = "https://github.com/romkatv/powerlevel10k/archive/v1.18.0.tar.gz"
     exact = true
     stripComponents = 1
 [".local/share/fonts"]
     type = "archive"
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/Hack.zip"
     exact = true
     include = ["Hack Regular Nerd Font Complete.ttf"]
