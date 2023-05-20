@@ -1,8 +1,12 @@
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
 {{- if (eq .chezmoi.os "linux") -}}
 #!/bin/bash
 {{ if (eq .chezmoi.osRelease.id "fedora") -}}
-dnf copr enable dsommers/openvpn3 && dnf install -y openvpn3-client
+{{ $sudo }}dnf copr enable dsommers/openvpn3 && {{ $sudo }}dnf install -y openvpn3-client
 keeper --config ~/config.json download-attachment Arbeit/Indi/INDI.ovpn
-openvpn3 config-import --config ./INDI.ovpn --name INDI --persistent
+#openvpn3 config-import --config ./INDI.ovpn --name INDI --persistent
 {{ end -}}
 {{- end -}}
