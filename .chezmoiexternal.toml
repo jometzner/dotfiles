@@ -49,4 +49,3 @@
     type = "archive"
     url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/Hack.zip"
     exact = true
-    include = ["Hack Regular Nerd Font Complete.ttf"]
