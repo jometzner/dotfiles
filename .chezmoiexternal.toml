@@ -49,3 +49,7 @@
     type = "archive"
     url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/Hack.zip"
     exact = true
+[".vim/pack/plugins/start/miramare"]
+    type = "git-repo"
+    url = "https://github.com/franbach/miramare.git"
+    refreshPeriod = "168h"
