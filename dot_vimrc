@@ -30,9 +30,6 @@ hi LineNr ctermbg=NONE
 "share clipboard between instances
 set clipboard^=unnamedplus
 
-"properly expand multi-line blocks
-imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
-
 "fast navigation regardless of codeblocks
 " map J 10j
 " map K 10k
