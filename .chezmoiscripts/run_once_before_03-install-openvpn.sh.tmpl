@@ -6,7 +6,7 @@
 #!/bin/bash
 {{ if (eq .chezmoi.osRelease.id "fedora") -}}
 {{ $sudo }}dnf copr enable dsommers/openvpn3 && {{ $sudo }}dnf install -y openvpn3-client
-keeper --config ~/config.json download-attachment Arbeit/Indi/INDI.ovpn
-#openvpn3 config-import --config ./INDI.ovpn --name INDI --persistent
+keeper --config ~/config.json download-attachment --out-dir .system-connections Arbeit/Indi/INDI.ovpn
+openvpn3 config-import --config .system-connections/INDI.ovpn --name INDI --persistent
 {{ end -}}
 {{- end -}}
