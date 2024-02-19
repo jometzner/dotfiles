@@ -100,7 +100,6 @@ plugins=(
   docker-compose
   kubectl
   sudo
-  autojump
   fzf
   git
   direnv
@@ -128,3 +127,6 @@ export NVM_DIR="$HOME/.nvm"
 alias lilith="{ ~/Java/lilith-8.3.0/bin/lilith > /dev/null; } 2>&1 &"
 alias g="./gradlew"
 alias ls="colorls"
+
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+eval "$(zoxide init --cmd cd zsh)"
