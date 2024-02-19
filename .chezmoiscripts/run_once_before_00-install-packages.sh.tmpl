@@ -33,7 +33,8 @@
      "docker-compose-plugin"
      "yubikey-manager" 
      "libaio"
-     "libnsl" -}}
+     "libnsl"
+     "wireguard-tools" -}}
 
 {{ $sudo := "sudo " -}}
 {{ if eq .chezmoi.username "root" -}}
