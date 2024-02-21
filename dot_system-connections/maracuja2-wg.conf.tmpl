@@ -1,0 +1,10 @@
+[Interface]
+Address    = 198.18.7.2/32
+PrivateKey = {{ (index (index (keeper "58HNOWikpVrn4Ov0UZt5vA").fields 1).value 0).privateKey }}
+
+[Peer]
+PublicKey    = IcSw2uYeWySY0XdEZ7mlnSP424UPARMmyNEbduAV/U8=
+AllowedIPs   = 198.18.7.1/32
+
+Endpoint     = maracuja2.myqnapcloud.com:51820
+PersistentKeepalive = 30
