@@ -1,6 +1,11 @@
+[".nvm"]
+    type = "archive"
+    url = "https://github.com/nvm-sh/nvm/archive/refs/tags/v0.39.7.tar.gz"
+    exact = true
+    stripComponents = 1
 [".oh-my-zsh"]
     type = "archive"
-    url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
+    url = "https://github.com/ohmyzsh/ohmyzsh/archive/refs/heads/master.zip"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
@@ -47,7 +52,7 @@
     stripComponents = 1
 [".local/share/fonts"]
     type = "archive"
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/Hack.zip"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip"
     exact = true
 [".vim/pack/plugins/start/miramare"]
     type = "git-repo"
