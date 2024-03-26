@@ -1,0 +1,32 @@
+<ca>
+{{ (index (index (keeper "k6o1Tt-RB5WZWrQpCBqujg").custom 0).value 0) }}
+</ca>
+
+<cert>
+{{ (index (index (keeper "k6o1Tt-RB5WZWrQpCBqujg").custom 1).value 0) }}
+</cert>
+
+cipher AES-128-CBC
+client
+comp-lzo no
+dev tun
+dev-type tun
+<key>
+{{ (index (index (keeper "k6o1Tt-RB5WZWrQpCBqujg").custom 2).value 0) }}
+</key>
+
+key-direction 1
+nobind
+ns-cert-type server
+rcvbuf 0
+{{ (index (index (keeper "k6o1Tt-RB5WZWrQpCBqujg").custom 4).value 0) }}
+reneg-sec 604800
+server-poll-timeout 4
+setenv PUSH_PEER_INFO
+sndbuf 0
+<tls-auth>
+{{ (index (index (keeper "k6o1Tt-RB5WZWrQpCBqujg").custom 3).value 0) }}
+</tls-auth>
+
+verb 3
+
