@@ -11,6 +11,7 @@ Linux)
     # commands to install password-manager-binary on Linux
     type pip3 >/dev/null 2>&1 || sudo dnf install -y python3-pip
     pip3 install keepercommander
+    keeper --config ~/config.json this-device persistent-login on
     ;;
 *)
     echo "unsupported OS"
