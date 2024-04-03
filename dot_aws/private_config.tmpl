@@ -22,3 +22,10 @@ role_arn = arn:aws:iam::{{ (index (index (keeper "h_JnFZn4ZP07wsk9PH97RQ").custo
 role_session_name = admin@indi-acc
 mfa_serial = {{ (index (index (keeper "h_JnFZn4ZP07wsk9PH97RQ").custom 3).value 0) }}
 region = eu-west-1
+
+[profile indi-prod]
+source_profile = default
+role_arn = arn:aws:iam::{{ (index (index (keeper "h_JnFZn4ZP07wsk9PH97RQ").custom 6).value 0) }}:role/administrator
+role_session_name = admin@indi-prod
+mfa_serial = {{ (index (index (keeper "h_JnFZn4ZP07wsk9PH97RQ").custom 3).value 0) }}
+region = eu-west-1
