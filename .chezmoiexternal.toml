@@ -8,7 +8,6 @@
     url = "https://github.com/ohmyzsh/ohmyzsh/archive/refs/heads/master.zip"
     exact = true
     stripComponents = 1
-    refreshPeriod = "168h"
 [".oh-my-zsh/custom/plugins/zsh-completions"]
     type = "archive"
     url = "https://github.com/zsh-users/zsh-completions/archive/refs/tags/0.34.0.tar.gz"
@@ -27,6 +26,8 @@
     type = "git-repo"
     url = "https://github.com/aws/aws-cli.git"
     refreshPeriod = "168h"
+    ["work/aws-cli".clone]
+        args = "--branch v2"
 [".local/bin/kubens"]
     type = "file"
     url = "https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens_v0.9.4_linux_x86_64.tar.gz"
