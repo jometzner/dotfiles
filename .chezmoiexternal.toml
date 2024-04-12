@@ -27,7 +27,7 @@
     url = "https://github.com/aws/aws-cli.git"
     refreshPeriod = "168h"
     ["work/aws-cli".clone]
-        args = "--branch v2"
+        args = ["--branch v2"]
 [".local/bin/kubens"]
     type = "file"
     url = "https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens_v0.9.4_linux_x86_64.tar.gz"
