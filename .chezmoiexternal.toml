@@ -53,7 +53,7 @@
     stripComponents = 1
 [".local/share/fonts"]
     type = "archive"
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip"
     exact = true
 [".vim/pack/plugins/start/miramare"]
     type = "git-repo"
