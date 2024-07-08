@@ -5,7 +5,7 @@
 {{- if (eq .chezmoi.os "linux") -}}
 #!/bin/bash
 {{ if (eq .chezmoi.osRelease.id "fedora") -}}
-{{ $sudo }}dnf copr enable dsommers/openvpn3 && {{ $sudo }}dnf install -y openvpn3-client
+{{ $sudo }}dnf copr enable dsommers/openvpn3 && {{ $sudo }}dnf copr enable grzegorz-gutowski/openvpn3-indicator && {{ $sudo }}dnf install -y openvpn3-client openvpn3-indicator
 openvpn3 config-import --config {{ .chezmoi.homeDir }}/.system-connections/INDI.ovpn --name INDI --persistent
 {{ end -}}
 {{- end -}}
