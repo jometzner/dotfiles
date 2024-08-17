@@ -55,7 +55,7 @@
     type = "archive"
     url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip"
     exact = true
-[".vim/pack/plugins/start/miramare"]
+[".vim/autoload/plug.vim"]
     type = "git-repo"
-    url = "https://github.com/franbach/miramare.git"
+    url = "https://github.com/junegunn/vim-plug.git"
     refreshPeriod = "168h"
