@@ -6,9 +6,16 @@ set shiftwidth=2 "indentation
 set softtabstop=2 "tab is 2 spaces
 set scrolloff=3 "show 3 lines of context around cursor
 set laststatus=2 "always display statusline
-syntax enable "syntax colors
 
-filetype plugin indent on "indentation by filetype
+" syntax enable "syntax colors
+" filetype plugin indent on "indentation by filetype
+" above settings will be activated by `call plug#end()`
+
+call plug#begin()
+" List your plugins here
+Plug 'junegunn/fzf'
+Plug 'franbach/miramare'
+call plug#end()
 
 " set termguicolors
 
