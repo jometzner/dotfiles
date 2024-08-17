@@ -1,3 +1,7 @@
+Host intershop-ubuntu-app-dev
+  Hostname intershop-ubuntu-app-1.eu-west-1.dev.indicloud.net
+Host intershop-ubuntu-web-dev
+  Hostname intershop-ubuntu-web-1.eu-west-1.dev.indicloud.net
 Host intershop-app-dev
   Hostname intershop-app-1.eu-west-1.dev.indicloud.net
 Host intershop-web-dev
@@ -32,6 +36,8 @@ Host solr-3-acc
   Hostname intershop-solr-icm-migration-3.eu-west-1.acc.indicloud.net
 Host product-data-prod
   Hostname product-data-server.eu-west-1.prod.indicloud.net
+Host product-data-acc
+  Hostname product-data-server.eu-west-1.acc.indicloud.net
 
 Host ssh.dev.azure.com
   IdentityFile ~/.ssh/id_rsa_azure
