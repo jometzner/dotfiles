@@ -56,6 +56,5 @@
     url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip"
     exact = true
 [".vim/autoload/plug.vim"]
-    type = "git-repo"
-    url = "https://github.com/junegunn/vim-plug.git"
-    refreshPeriod = "168h"
+    type = "file"
+    url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
