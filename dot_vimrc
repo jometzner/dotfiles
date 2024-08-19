@@ -6,6 +6,7 @@ set shiftwidth=2 "indentation
 set softtabstop=2 "tab is 2 spaces
 set scrolloff=3 "show 3 lines of context around cursor
 set laststatus=2 "always display statusline
+set nocompatible "disable the legazy
 
 " syntax enable "syntax colors
 " filetype plugin indent on "indentation by filetype
@@ -13,11 +14,21 @@ set laststatus=2 "always display statusline
 
 call plug#begin()
 " List your plugins here
-Plug 'junegunn/fzf'
-Plug 'franbach/miramare'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
+  Plug 'junegunn/fzf'
+  Plug 'franbach/miramare'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-commentary'
+  Plug 'dense-analysis/ale'
+  Plug 'itchyny/lightline.vim'
+    set noshowmode
+    " lightline theme
+    "" let g:lightline = {
+    ""       \ 'colorscheme': 'jellybeans',
+    ""       \ }
+    let g:lightline = {
+          \ 'colorscheme': 'seoul256',
+          \ }
 call plug#end()
 
 set termguicolors
@@ -79,13 +90,6 @@ set clipboard^=unnamedplus
 " temporarily disable ale
 autocmd BufEnter *.js ALEDisable
 
-" lightline theme
-"" let g:lightline = {
-""       \ 'colorscheme': 'jellybeans',
-""       \ }
-let g:lightline = {
-      \ 'colorscheme': 'seoul256',
-      \ }
 
 " filetype plugin on
 set omnifunc=syntaxcomplete#Complete
