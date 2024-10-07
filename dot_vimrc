@@ -7,6 +7,9 @@ set softtabstop=2 "tab is 2 spaces
 set scrolloff=3 "show 3 lines of context around cursor
 set laststatus=2 "always display statusline
 set nocompatible "disable the legazy
+set noswapfile "disable swap files
+
+
 
 " syntax enable "syntax colors
 " filetype plugin indent on "indentation by filetype
@@ -60,9 +63,6 @@ set clipboard^=unnamedplus
 :command Wq wq
 :command W w
 :command Q q
-
-" disable swap files
-" set noswapfile
 
 " strip whitespaces
 :nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
