@@ -1,7 +1,7 @@
 client
 server-poll-timeout 4
 nobind
-{{ (index (index (keeper "k6o1Tt-RB5WZWrQpCBqujg").custom 4).value 0) }}
+{{ (index (index (keeper "HtwZaFnxoNMUgRie4rxtpg").custom 4).value 0) }}
 dev tun
 dev-type tun
 remote-cert-tls server
@@ -12,20 +12,20 @@ verb 3
 push-peer-info
 
 <ca>
-{{ (index (index (keeper "k6o1Tt-RB5WZWrQpCBqujg").custom 0).value 0) }}
+{{ (index (index (keeper "HtwZaFnxoNMUgRie4rxtpg").custom 0).value 0) }}
 </ca>
 
 <cert>
-{{ (index (index (keeper "k6o1Tt-RB5WZWrQpCBqujg").custom 1).value 0) }}
+{{ (index (index (keeper "HtwZaFnxoNMUgRie4rxtpg").custom 1).value 0) }}
 </cert>
 
 <key>
-{{ (index (index (keeper "k6o1Tt-RB5WZWrQpCBqujg").custom 2).value 0) }}
+{{ (index (index (keeper "HtwZaFnxoNMUgRie4rxtpg").custom 2).value 0) }}
 </key>
 
 key-direction 1
 <tls-auth>
-{{ (index (index (keeper "k6o1Tt-RB5WZWrQpCBqujg").custom 3).value 0) }}
+{{ (index (index (keeper "HtwZaFnxoNMUgRie4rxtpg").custom 3).value 0) }}
 </tls-auth>
 
 # Extra user-defined configuration
