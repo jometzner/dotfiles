@@ -52,3 +52,7 @@ Host *.indicloud.net
   #PubkeyAcceptedAlgorithms +rsa-sha2-256,rsa-sha2-512,ssh-rsa
   HostKeyAlgorithms +ssh-rsa,ssh-dss
 
+Host sftp.hidrive.ionos.com
+  User irvszd6
+  IdentityFile ~/.ssh/id_rsa_hidrive
+  IdentitiesOnly yes
