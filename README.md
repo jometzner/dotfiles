@@ -12,5 +12,6 @@ User must be in group `wheel` for being able to `sudo`.
 # Install #
 ```
 sh -c "$(curl -fsLS https://chezmoi.io/get)"
-chezmoi init jometzner --apply
+chezmoi init --recurse-submodules=false jometzner
+chezmoi apply
 ```
