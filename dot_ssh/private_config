@@ -21,13 +21,13 @@ Host solr-2-prod
 Host solr-3-prod
   Hostname intershop-solr-icm-migration-3.eu-west-1.prod.indicloud.net
 Host intershop-web-1-acc
-  Hostname intershop-web-icm-migration-1.eu-west-1.acc.indicloud.net
+  Hostname intershop-web-icm-1.eu-west-1.acc.indicloud.net
 Host intershop-web-2-acc
-  Hostname intershop-web-icm-migration-2.eu-west-1.acc.indicloud.net
+  Hostname intershop-web-icm-2.eu-west-1.acc.indicloud.net
 Host intershop-app-1-acc
-  Hostname intershop-app-icm-migration-1.eu-west-1.acc.indicloud.net
+  Hostname intershop-app-icm-1.eu-west-1.acc.indicloud.net
 Host intershop-app-2-acc
-  Hostname intershop-app-icm-migration-2.eu-west-1.acc.indicloud.net
+  Hostname intershop-app-icm-2.eu-west-1.acc.indicloud.net
 Host solr-1-acc
   Hostname intershop-solr-icm-migration-1.eu-west-1.acc.indicloud.net
 Host solr-2-acc
