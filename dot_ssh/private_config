@@ -42,15 +42,11 @@ Host product-data-acc
 Host ssh.dev.azure.com
   IdentityFile ~/.ssh/id_rsa_azure
   IdentitiesOnly yes
-  #PubkeyAcceptedAlgorithms +rsa-sha2-256,rsa-sha2-512,ssh-rsa
-  HostKeyAlgorithms +ssh-rsa
 
 Host *.indicloud.net
   User johannes
   IdentityFile ~/.ssh/id_rsa
   IdentitiesOnly yes
-  #PubkeyAcceptedAlgorithms +rsa-sha2-256,rsa-sha2-512,ssh-rsa
-  HostKeyAlgorithms +ssh-rsa,ssh-dss
 
 Host sftp.hidrive.ionos.com
   User irvszd6
