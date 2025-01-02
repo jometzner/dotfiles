@@ -1,0 +1,18 @@
+Desktop Files Creator	com.github.alexkdeveloper.desktop-files-creator	1.2.7	stable	system
+Slack	com.slack.Slack	4.41.105	stable	system
+TreeSheets	com.strlen.TreeSheets	12421969184	stable	system
+DBeaver Community	io.dbeaver.DBeaverCommunity	24.3.1	stable	system
+JD-GUI	io.github.java_decompiler.jd-gui	1.6.6	stable	system
+Khronos	io.github.lainsce.Khronos	4.0.1	stable	system
+Freedesktop Platform	org.freedesktop.Platform	freedesktop-sdk-23.08.27	23.08	system
+Freedesktop Platform	org.freedesktop.Platform	freedesktop-sdk-24.08.9	24.08	system
+Mesa	org.freedesktop.Platform.GL.default	24.3.1	23.08	system
+Mesa (Extra)	org.freedesktop.Platform.GL.default	24.3.1	23.08-extra	system
+Mesa	org.freedesktop.Platform.GL.default	24.3.1	24.08	system
+Mesa (Extra)	org.freedesktop.Platform.GL.default	24.3.1	24.08extra	system
+nvidia-565-77	org.freedesktop.Platform.GL.nvidia-565-77		1.4	system
+Intel VAAPI driver	org.freedesktop.Platform.VAAPI.Intel		23.08	system
+Intel VAAPI driver	org.freedesktop.Platform.VAAPI.Intel		24.08	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.2.0	system
+openh264	org.freedesktop.Platform.openh264	2.4.1	2.4.1	system
+GNOME Application Platform version 47	org.gnome.Platform		47	system
