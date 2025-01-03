@@ -92,7 +92,6 @@ ZSH_DISABLE_COMPFIX=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  zsh-history-substring-search
   zsh-autosuggestions
   zsh-completions
   vi-mode
@@ -106,6 +105,7 @@ plugins=(
   globalias
   aws
   nvm
+  sdk
 )
 
 source ~/.oh-my-zsh/custom/plugins/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
