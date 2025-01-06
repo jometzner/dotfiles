@@ -120,9 +120,6 @@ source ~/.oh-my-zsh/custom/plugins/zdharma-continuum/fast-syntax-highlighting/fa
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-PROMPT="%{$fg[white]%}%n@%{$fg[green]%}%m%{$reset_color%} ${PROMPT}"
-
 setopt histignorespace
 setopt rm_star_silent
 
