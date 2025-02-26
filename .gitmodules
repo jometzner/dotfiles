@@ -1,3 +1,4 @@
 [submodule "dot_rednotebook"]
 	path = dot_rednotebook
 	url = git@github.com:jometzner/dot_rednotebook.git
+	branch = main
