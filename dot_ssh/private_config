@@ -16,6 +16,12 @@ Host solr-2-prod
   Hostname intershop-solr-icm-migration-2.eu-west-1.prod.indicloud.net
 Host solr-3-prod
   Hostname intershop-solr-icm-migration-3.eu-west-1.prod.indicloud.net
+Host eureka-1-prod
+  Hostname intershop-eureka-1.eu-west-1.prod.indicloud.net
+  User ubuntu
+Host eureka-2-prod
+  Hostname intershop-eureka-2.eu-west-1.prod.indicloud.net
+  User ubuntu
 Host intershop-web-1-acc
   Hostname intershop-web-icm-1.eu-west-1.acc.indicloud.net
 Host intershop-web-2-acc
@@ -30,6 +36,12 @@ Host solr-2-acc
   Hostname intershop-solr-icm-migration-2.eu-west-1.acc.indicloud.net
 Host solr-3-acc
   Hostname intershop-solr-icm-migration-3.eu-west-1.acc.indicloud.net
+Host eureka-1-acc
+  Hostname intershop-eureka-1.eu-west-1.acc.indicloud.net
+  User ubuntu
+Host eureka-2-acc
+  Hostname intershop-eureka-2.eu-west-1.acc.indicloud.net
+  User ubuntu
 Host product-data-prod
   Hostname product-data-server.eu-west-1.prod.indicloud.net
 Host product-data-acc
@@ -43,6 +55,7 @@ Host *.indicloud.net
   User johannes
   IdentityFile ~/.ssh/id_rsa
   IdentitiesOnly yes
+  SetEnv TERM=xterm-256color
 
 Host sftp.hidrive.ionos.com
   User irvszd6
