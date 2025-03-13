@@ -1,44 +1,4 @@
 {{- if (eq .chezmoi.os "linux") -}}
-{{ $packages := list
-     "curl"
-     "direnv"
-     "git"
-     "jq"
-     "inotify-tools"
-     "gpg"
-     "awscli2"
-     "vim"
-     "zsh"
-     "tig"
-     "rednotebook"
-     "binutils"
-     "gcc"
-     "glibc-headers"
-     "fzf"
-     "terminator"
-     "zoxide"
-     "ranger"
-     "gron"
-     "sd"
-     "util-linux-user"
-     "ykocli"
-     "copyq"
-     "htop"
-     "kubernetes-client"
-     "code"
-     "vivaldi-stable"
-     "resilio-sync"
-     "docker-ce"
-     "docker-ce-cli"
-     "containerd.io"
-     "docker-compose-plugin"
-     "yubikey-manager"
-     "wireguard-tools"
-     "libaio"
-     "openssl"
-     "libnsl"
-     "gh" -}}
-
 {{ $sudo := "sudo " -}}
 {{ if eq .chezmoi.username "root" -}}
 {{   $sudo = "" -}}
@@ -49,7 +9,7 @@ set -ev pipefail
 {{ if (eq .chezmoi.osRelease.id "rhel") -}}
 {{ $sudo }}yum update
 {{ $sudo }}yum upgrade -y
-{{ $sudo }}yum install -y {{ $packages | join " " }}
+{{ $sudo }}yum install -y {{ .packages.rhel | join " " }}
 {{ end -}}
 {{ if (eq .chezmoi.osRelease.id "fedora") -}}
 {{ $sudo }}dnf install 'dnf-command(config-manager)'
@@ -61,6 +21,6 @@ set -ev pipefail
 printf "[resilio-sync]\nname=Resilio Sync\nbaseurl=https://linux-packages.resilio.com/resilio-sync/rpm/\$basearch\nenabled=1\ngpgcheck=1\n" | {{ $sudo }}tee /etc/yum.repos.d/resilio-sync.repo
 {{ $sudo }}dnf update
 {{ $sudo }}dnf upgrade -y
-{{ $sudo }}dnf install -y {{ $packages | join " " }}
+{{ $sudo }}dnf install -y {{ .packages.fedora | join " " }}
 {{ end -}}
 {{- end -}}
