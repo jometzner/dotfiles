@@ -2,30 +2,26 @@
 region = eu-west-1
 output = json
 
-[profile indi-iam]
-source_profile = default
-role_arn = arn:aws:iam::{{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 0).value 0) }}:role/administrator
-role_session_name = admin@indi-iam
-mfa_serial = {{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 3).value 0) }}
-region = eu-west-1
-
 [profile indi-dev]
-source_profile = default
-role_arn = arn:aws:iam::{{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 1).value 0) }}:role/administrator
-role_session_name = admin@indi-dev
-mfa_serial = {{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 3).value 0) }}
+sso_session = indi-sso
+sso_account_id = {{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 0).value 0) }}
+sso_role_name = AdministratorAccess
 region = eu-west-1
 
 [profile indi-acc]
-source_profile = default
-role_arn = arn:aws:iam::{{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 2).value 0) }}:role/administrator
-role_session_name = admin@indi-acc
-mfa_serial = {{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 3).value 0) }}
+sso_session = indi-sso
+sso_account_id = {{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 1).value 0) }}
+sso_role_name = AdministratorAccess
 region = eu-west-1
 
 [profile indi-prod]
-source_profile = default
-role_arn = arn:aws:iam::{{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 6).value 0) }}:role/administrator
-role_session_name = admin@indi-prod
-mfa_serial = {{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 3).value 0) }}
+sso_session = indi-sso
+sso_account_id = {{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 2).value 0) }}
+sso_role_name = AdministratorAccess
 region = eu-west-1
+
+[sso-session indi-sso]
+sso_start_url = {{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").fields 3).value 0) }}
+sso_region = eu-central-1
+sso_registration_scopes = sso:account:access
+
