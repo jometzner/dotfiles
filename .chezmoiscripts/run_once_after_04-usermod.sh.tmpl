@@ -1,8 +1,0 @@
-{{ $sudo := "sudo " -}}
-{{ if eq .chezmoi.username "root" -}}
-{{   $sudo = "" -}}
-{{ end -}}
-{{- if (eq .chezmoi.os "linux") -}}
-#!/bin/bash
-{{ $sudo }}usermod -aG docker {{ .chezmoi.username }}
-{{- end -}}
