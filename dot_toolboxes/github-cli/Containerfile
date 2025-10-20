@@ -1,0 +1,5 @@
+FROM quay.io/jometzner/toolbox-base:42
+
+RUN dnf install dnf5-plugins
+RUN dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
+RUN dnf install gh --repo gh-cli

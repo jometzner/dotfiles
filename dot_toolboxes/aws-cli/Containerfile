@@ -1,0 +1,4 @@
+FROM quay.io/jometzner/toolbox-base:42
+
+RUN dnf -y install awscli2 && \
+    dnf clean all
