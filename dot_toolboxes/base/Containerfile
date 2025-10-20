@@ -1,0 +1,16 @@
+FROM registry.fedoraproject.org/fedora-toolbox:42
+
+RUN dnf -y update && \
+    dnf -y install direnv \
+                    jq \
+                    vim \
+                    zsh \
+                    fzf \
+                    zoxide \
+                    ranger \
+                    yubikey-manager \
+                    ruby-devel \
+                    gron \
+                    htop \
+                    inotify-tools
+RUN dnf clean all
