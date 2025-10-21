@@ -4,14 +4,12 @@ Idea for this approach originated from https://www.atlassian.com/git/tutorials/d
 Later I found a nice article showing https://www.chezmoi.io/
 
 # Prerequisites #
-```
-dnf install -y curl git util-linux
-```
-User must be in group `wheel` for being able to `sudo`.
+This setup requires toolbox and Fedora Silverblue as host system.
 
 # Install #
 ```
-sh -c "$(curl -fsLS https://chezmoi.io/get)"
+toolbox create --image quay.io/jometzner/chezmoi:42 chezmoi
+toolbox enter chezmoi
 chezmoi init --recurse-submodules=false jometzner
 chezmoi apply
 ```

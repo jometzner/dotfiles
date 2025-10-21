@@ -1,8 +1,5 @@
 packages:
   fedora:
-    - binutils
-    - gcc
-    - glibc-headers
     - wireguard-tools
     - libaio
     - libnsl
