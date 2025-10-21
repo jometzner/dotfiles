@@ -1,0 +1,2 @@
+FROM quay.io/jometzner/keeper:42
+RUN dnf install -y gcc glibc-headers chezmoi
