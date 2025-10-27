@@ -34,6 +34,8 @@ Host product-data-prod
   Hostname product-data-server.eu-west-1.prod.indicloud.net
 Host product-data-acc
   Hostname product-data-server.eu-west-1.acc.indicloud.net
+Host interface-prod
+  Hostname interface-server.eu-west-1.prod.indicloud.net
 
 Host ssh.dev.azure.com
   IdentityFile ~/.ssh/id_rsa_azure
