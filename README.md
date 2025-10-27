@@ -23,3 +23,13 @@ sudo sed -i 's|gpgkey=.*|gpgkey=file:///etc/pki/rpm-gpg/openvpn3.gpg|' /etc/yum.
 sudo rpm-ostree install openvpn3-client
 openvpn3 config-import --config ~/.system-connections/INDI.ovpn --name INDI --persistent
 ```
+
+# Setup for Terminator or Ghostty
+```
+rpm-ostree install terminator
+```
+```
+curl -fsSL "https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-42/scottames-ghostty-fedora-42.repo" | sudo tee /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:scottames:ghostty.repo > /dev/null
+rpm-ostree refresh-md
+rpm-ostree install ghostty
+```
