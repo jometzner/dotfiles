@@ -12,5 +12,6 @@ RUN dnf -y update && \
                     ruby-devel \
                     gron \
                     htop \
-                    inotify-tools
+                    inotify-tools \
+                    libxcrypt-compat
 RUN dnf clean all
