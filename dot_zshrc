@@ -104,7 +104,6 @@ plugins=(
   zsh-completions
   vi-mode
   dnf
-  docker-compose
   kubectl
   sudo
   fzf
