@@ -1,0 +1,42 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# Backup the original hosts file
+BACKUP_FILE="/etc/hosts.backup.$(date +%Y%m%d_%H%M%S)"
+if [[ ! -f "$BACKUP_FILE" ]]; then
+    echo "Creating backup of /etc/hosts at $BACKUP_FILE"
+    sudo cp /etc/hosts "$BACKUP_FILE"
+fi
+
+# Define the custom hosts content
+CUSTOM_HOSTS_CONTENT=$(cat << 'EOF'
+# Loopback entries; do not change.
+# For historical reasons, localhost precedes localhost.localdomain:
+127.0.0.1   {{ .chezmoi.hostname }}.jometzner.de localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         {{ .chezmoi.hostname }}.jometzner.de localhost localhost.localdomain localhost6 localhost6.localdomain6
+#192.168.1.111  maracuja2 maracuja2.jometzner.de
+198.18.7.1  maracuja2 maracuja2.jometzner.de
+# See hosts(5) for proper format and other examples:
+# 192.168.1.10 foo.example.org foo
+# 192.168.1.13 bar.example.org bar
+EOF
+)
+
+# Create a temporary file with the new content
+TEMP_FILE=$(mktemp)
+trap "rm -f $TEMP_FILE" EXIT
+
+echo "$CUSTOM_HOSTS_CONTENT" > "$TEMP_FILE"
+
+# Check if our custom entries already exist (look for our hostname)
+if grep -q "{{ .chezmoi.hostname }}.jometzner.de" /etc/hosts; then
+    echo "Custom hosts entries already exist. Skipping..."
+else
+    echo "Adding custom hosts entries..."
+    sudo tee -a /etc/hosts < "$TEMP_FILE" > /dev/null
+    echo "Hosts file updated successfully!"
+fi
+
+echo "Hosts file updated successfully!"
+echo "To view the changes, run: cat /etc/hosts"
