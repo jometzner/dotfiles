@@ -1,4 +1,4 @@
 FROM quay.io/jometzner/toolbox-base:42
 
-RUN dnf -y install awscli2 && \
+RUN dnf -y install awscli2 python3-pip && \
     dnf clean all
