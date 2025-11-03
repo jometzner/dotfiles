@@ -1,0 +1,11 @@
+extensions:
+  fedora:
+    - appindicatorsupport@rgcjonas.gmail.com
+    - auto-move-windows@gnome-shell-extensions.gcampax.github.com
+    - clipboard-indicator@tudmotu.com
+    - workspace-indicator@gnome-shell-extensions.gcampax.github.com
+    - apps-menu@gnome-shell-extensions.gcampax.github.com
+    - background-logo@fedorahosted.org
+    - launch-new-instance@gnome-shell-extensions.gcampax.github.com
+    - places-menu@gnome-shell-extensions.gcampax.github.com
+    - window-list@gnome-shell-extensions.gcampax.github.com

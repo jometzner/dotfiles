@@ -1,0 +1,4 @@
+#!/bin/bash
+{{- range .extensions.fedora }}
+gnome-extensions enable {{ . }}
+{{- end }}
