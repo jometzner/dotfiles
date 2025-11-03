@@ -28,6 +28,14 @@ sudo semanage boolean --m --on dbus_access_tuntap_device
 openvpn3 config-import --config ~/.system-connections/INDI.ovpn --name INDI --persistent
 ```
 
+# Setup for openvpn3 indicator
+```
+gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com
+sudo curl -L https://copr.fedorainfracloud.org/coprs/grzegorz-gutowski/openvpn3-indicator/repo/fedora-43/grzegorz-gutowski-openvpn3-indicator-fedora-42.repo -o _copr\:copr.fedorainfracloud.org\:grzegorz-gutowski\:openvpn3-indicator.repo
+sudo rpm-ostree refesh-md
+sudo rpm-ostree install openvpn3-indicator
+```
+
 # Setup for Terminator or Ghostty
 ```
 rpm-ostree install terminator
