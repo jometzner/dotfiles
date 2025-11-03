@@ -1,0 +1,147 @@
+name: Build and Push Toolboxes
+
+on:
+  push:
+    paths:
+      - 'dot_toolboxes/**/Containerfile'
+      - '.github/workflows/build-toolboxes.yml'
+  workflow_dispatch:
+
+env:
+  REGISTRY: quay.io
+  REGISTRY_USER: ${{ github.repository_owner }}
+
+jobs:
+  discover-toolboxes:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Discover Containerfiles
+        id: set-matrix
+        run: |
+          # Find all Containerfile paths and extract directory names
+          containerfiles=$(find dot_toolboxes -name "Containerfile" -type f | sort)
+
+          # Build JSON matrix
+          matrix_json="["
+          first=true
+
+          for containerfile in $containerfiles; do
+            # Extract directory name (e.g., dot_toolboxes/aws-cli/Containerfile -> aws-cli)
+            toolbox_name=$(dirname "$containerfile" | sed 's|dot_toolboxes/||')
+
+            if [ "$first" = true ]; then
+              first=false
+            else
+              matrix_json="$matrix_json,"
+            fi
+
+            matrix_json="$matrix_json{\"name\":\"$toolbox_name\",\"path\":\"$(dirname "$containerfile")\",\"containerfile\":\"$containerfile\"}"
+          done
+
+          matrix_json="$matrix_json]"
+
+          echo "Found toolboxes:"
+          echo "$matrix_json" | jq '.'
+
+          echo "matrix=$matrix_json" >> $GITHUB_OUTPUT
+
+  build-and-push:
+    needs: discover-toolboxes
+    if: needs.discover-toolboxes.outputs.matrix != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        toolbox: ${{ fromJson(needs.discover-toolboxes.outputs.matrix) }}
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Log in to Container Registry
+        uses: redhat-actions/podman-login@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ env.REGISTRY_USER }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+      - name: Generate image tags
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.REGISTRY_USER }}/${{ matrix.toolbox.name }}
+          flavor: |
+            latest=auto
+          tags: |
+            type=ref,event=branch
+            type=schedule
+            type=semver,pattern={{major}}.{{minor}}
+      - name: Build with Buildah
+        id: build
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: ${{ env.REGISTRY }}/${{ env.REGISTRY_USER }}/${{ matrix.toolbox.name }}
+          tags: ${{ steps.meta.outputs.tags }}
+          containerfiles: ${{ matrix.toolbox.containerfile }}
+          context: ${{ matrix.toolbox.path }}
+          labels: |
+            org.opencontainers.image.title=Toolbox ${{ matrix.toolbox.name }}
+            org.opencontainers.image.description=Custom toolbox container for ${{ matrix.toolbox.name }}
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.created=${{ github.event.head_commit.timestamp }}
+          build-args: |
+            BUILDTIME=${{ github.event.head_commit.timestamp }}
+            VERSION=${{ github.sha }}
+
+      - name: Push to registry
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ steps.build.outputs.image }}
+          tags: ${{ steps.build.outputs.tags }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ env.REGISTRY_USER }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Generate summary
+        run: |
+          echo "## 🐳 Built toolbox: ${{ matrix.toolbox.name }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Image:** \`${{ env.REGISTRY }}/${{ env.REGISTRY_USER }}/${{ matrix.toolbox.name }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Path:** \`${{ matrix.toolbox.path }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Tags:**" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo '${{ steps.build.outputs.tags }}' | tr ' ' '\n' >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+  summary:
+    needs: [discover-toolboxes, build-and-push]
+    if: always()
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:latest
+    steps:
+      - name: Generate final summary
+        run: |
+          echo "## 📦 Toolbox Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ needs.discover-toolboxes.result }}" = "success" ] && [ "${{ needs.build-and-push.result }}" = "success" ]; then
+            echo "✅ All toolboxes built and pushed successfully!" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ needs.discover-toolboxes.result }}" = "success" ] && [ "${{ needs.build-and-push.result }}" = "skipped" ]; then
+            echo "⏭️ No toolboxes found to build." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Some builds failed. Check the logs above." >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Registry:** \`${{ env.REGISTRY }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Image prefix:** \`${{ env.IMAGE_PREFIX }}\`" >> $GITHUB_STEP_SUMMARY
