@@ -10,7 +10,7 @@ This setup requires toolbox and Fedora Silverblue as host system.
 ```
 toolbox create --image quay.io/jometzner/chezmoi:42 chezmoi
 toolbox enter chezmoi
-chezmoi init --recurse-submodules=false --branch main jometzner
+chezmoi init --recurse-submodules=false --branch 42 jometzner
 chezmoi apply
 ```
 

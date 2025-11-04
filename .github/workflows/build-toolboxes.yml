@@ -100,7 +100,7 @@ jobs:
             org.opencontainers.image.created=${{ github.event.head_commit.timestamp }}
           build-args: |
             BUILDTIME=${{ github.event.head_commit.timestamp }}
-            VERSION=${{ github.sha }}
+            VERSION=${{ github.ref_name }}
 
       - name: Push to registry
         uses: redhat-actions/push-to-registry@v2
