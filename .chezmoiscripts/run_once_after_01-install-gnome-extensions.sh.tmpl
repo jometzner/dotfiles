@@ -1,4 +1,4 @@
 #!/bin/bash
 {{- range .extensions.fedora }}
-gnome-extensions enable {{ . }}
+flatpak-spawn --host gnome-extensions enable {{ . }}
 {{- end }}
