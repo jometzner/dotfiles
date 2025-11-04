@@ -11,7 +11,6 @@ RUN dnf -y update && \
                     ranger \
                     yubikey-manager \
                     ruby-devel \
-                    gron \
                     htop \
                     inotify-tools \
                     libxcrypt-compat
