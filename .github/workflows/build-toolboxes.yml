@@ -105,9 +105,7 @@ jobs:
       - name: Push to registry
         uses: redhat-actions/push-to-registry@v2
         with:
-          image: ${{ steps.build.outputs.image }}
           tags: ${{ steps.build.outputs.tags }}
-          registry: ${{ env.REGISTRY }}
           username: ${{ env.REGISTRY_USER }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
