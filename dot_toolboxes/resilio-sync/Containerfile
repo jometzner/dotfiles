@@ -1,9 +1,6 @@
 ARG VERSION=42
 FROM quay.io/jometzner/toolbox-base:${VERSION}
 
-RUN rpm --import https://linux-packages.resilio.com/resilio-sync/key.asc
-RUN printf "[resilio-sync]\nname=Resilio Sync\nbaseurl=https://linux-packages.resilio.com/resilio-sync/rpm/\$basearch\nenabled=1\ngpgcheck=1\n" | tee /etc/yum.repos.d/resilio-sync.repo
-RUN dnf -y update && \
-    dnf -y install resilio-sync && \
-    dnf clean all
-RUN rm -rf /home/rslsync
+RUN curl -o resilio-sync.tar.gz -L "https://download-cdn.resilio.com/stable/linux/x64/0/resilio-sync_x64.tar.gz" && \
+    tar -xvzf resilio-sync.tar.gz -C /usr/local/bin rslsync && \
+    rm resilio-sync.tar.gz
