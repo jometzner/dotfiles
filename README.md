@@ -8,15 +8,15 @@ This setup requires toolbox and Fedora Silverblue as host system.
 
 # Install dotfiles
 ```
-toolbox create --image quay.io/jometzner/chezmoi:42 chezmoi
+toolbox create --image quay.io/jometzner/chezmoi:43 chezmoi
 toolbox enter chezmoi
-chezmoi init --recurse-submodules=false --branch 42 jometzner
+chezmoi init --recurse-submodules=false --branch 43 jometzner
 chezmoi apply
 ```
 
 # Setup for openvpn3
 ```
-sudo curl -L https://copr.fedorainfracloud.org/coprs/dsommers/openvpn3/repo/fedora-42/dsommers-openvpn3-fedora-42.repo -o /etc/yum.repos.d/_copr\:copr.fedorainfracloud.org\:dsommers\:openvpn3.repo
+sudo curl -L https://copr.fedorainfracloud.org/coprs/dsommers/openvpn3/repo/fedora-43/dsommers-openvpn3-fedora-43.repo -o /etc/yum.repos.d/_copr\:copr.fedorainfracloud.org\:dsommers\:openvpn3.repo
 sudo curl -L https://download.copr.fedorainfracloud.org/results/dsommers/openvpn3/pubkey.gpg -O
 sudo install -o 0 -g 0 -m644 pubkey.gpg /etc/pki/rpm-gpg/openvpn3.gpg
 sudo sed -i 's|gpgkey=.*|gpgkey=file:///etc/pki/rpm-gpg/openvpn3.gpg|' /etc/yum.repos.d/_copr\:copr.fedorainfracloud.org\:dsommers\:openvpn3.repo
@@ -31,7 +31,7 @@ openvpn3 config-import --config ~/.system-connections/INDI.ovpn --name INDI --pe
 # Setup for openvpn3 indicator
 ```
 gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com
-sudo curl -L https://copr.fedorainfracloud.org/coprs/grzegorz-gutowski/openvpn3-indicator/repo/fedora-43/grzegorz-gutowski-openvpn3-indicator-fedora-42.repo -o _copr\:copr.fedorainfracloud.org\:grzegorz-gutowski\:openvpn3-indicator.repo
+sudo curl -L https://copr.fedorainfracloud.org/coprs/grzegorz-gutowski/openvpn3-indicator/repo/fedora-43/grzegorz-gutowski-openvpn3-indicator-fedora-43.repo -o _copr\:copr.fedorainfracloud.org\:grzegorz-gutowski\:openvpn3-indicator.repo
 sudo rpm-ostree refesh-md
 sudo rpm-ostree install openvpn3-indicator
 ```
@@ -52,7 +52,7 @@ rpm-ostree install code
 rpm-ostree install terminator
 ```
 ```
-curl -fsSL "https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-42/scottames-ghostty-fedora-42.repo" | sudo tee /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:scottames:ghostty.repo > /dev/null
+curl -fsSL "https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-43/scottames-ghostty-fedora-43.repo" | sudo tee /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:scottames:ghostty.repo > /dev/null
 rpm-ostree refresh-md
 rpm-ostree install ghostty
 ```
