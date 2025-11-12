@@ -1,3 +1,3 @@
-FROM ubuntu:18.04
+FROM quay.io/toolbx-images/debian-toolbox:11
 
-RUN apt-get update && apt-get -y install git-flow
+RUN sudo apt-get update && sudo apt-get -y install git-flow
