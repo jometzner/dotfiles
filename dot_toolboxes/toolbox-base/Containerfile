@@ -13,5 +13,6 @@ RUN dnf -y update && \
                     ruby-devel \
                     htop \
                     inotify-tools \
-                    libxcrypt-compat
+                    libxcrypt-compat \
+                    ansible
 RUN dnf clean all
