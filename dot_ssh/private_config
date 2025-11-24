@@ -37,6 +37,27 @@ Host product-data-acc
 Host interface-prod
   Hostname interface-server.eu-west-1.prod.indicloud.net
 
+# Raspis
+#
+Host k3s-1
+  Hostname k3s-1
+  IdentityFile ~/.ssh/id_ed25519
+  User jmetzner
+Host k3s-2
+  Hostname k3s-2
+  IdentityFile ~/.ssh/id_ed25519
+  User jmetzner
+Host k3s-3
+  Hostname k3s-3
+  IdentityFile ~/.ssh/id_ed25519
+  User jmetzner
+Host k3s-4
+  Hostname k3s-4
+  IdentityFile ~/.ssh/id_ed25519
+  User jmetzner
+
+# ADO
+#
 Host ssh.dev.azure.com
   IdentityFile ~/.ssh/id_rsa_azure
   IdentitiesOnly yes
