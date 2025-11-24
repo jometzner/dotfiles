@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily Flatpak Sync Timer
+Requires=sync-flatpaks.service
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
