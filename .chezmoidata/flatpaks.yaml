@@ -1,0 +1,37 @@
+flatpaks:
+  fedora:
+    - org.gnome.Calculator
+    - org.gnome.Characters
+    - org.gnome.Connections
+    - org.gnome.DejaDup
+    - org.gnome.Evince
+    - org.gnome.Evolution
+    - org.gnome.Extensions
+    - org.gnome.Logs
+    - org.gnome.Loupe
+    - org.gnome.Maps
+    - org.gnome.Meld
+    - org.gnome.NautilusPreviewer
+    - org.gnome.Snapshot
+    - org.gnome.TextEditor
+    - org.gnome.Weather
+    - org.gnome.baobab
+    - org.gnome.clocks
+    - org.gnome.font-viewer
+
+  flathub:
+    - app.rednotebook.RedNotebook
+    - be.alexandervanhee.gradia
+    - com.mattermost.Desktop
+    - com.vivaldi.Vivaldi
+    - io.dbeaver.DBeaverCommunity
+    - io.github.alainm23.planify
+    - io.github.flattool.Ignition
+    - io.github.java_decompiler.jd-gui
+    - io.github.kolunmi.Bazaar
+    - io.podman_desktop.PodmanDesktop
+    - me.iepure.devtoolbox
+    - org.eclipse.Java
+    - page.codeberg.JakobDev.jdDesktopEntryEdit
+    - page.tesk.Refine
+

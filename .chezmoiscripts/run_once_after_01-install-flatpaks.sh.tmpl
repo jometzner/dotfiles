@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# fail with rc 0 when flatpak is not installed
+flatpak-spawn --host type flatpak >/dev/null 2>&1 || exit 0
+
+flatpak-spawn --host flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/
+
+{{- range .flatpaks.flathub }}
+if ! flatpak-spawn --host flatpak info "{{ . }}" >/dev/null 2>&1; then
+    echo "Installing {{ . }}..."
+    flatpak-spawn --host flatpak --noninteractive --assumeyes --user install flathub {{ . }} -y
+else
+    echo "{{ . }} already installed, skipping..."
+fi
+{{- end }}
+

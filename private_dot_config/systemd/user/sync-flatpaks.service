@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync Flatpaks from YAML configuration
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/sync-flatpaks.sh
+StandardOutput=journal
+StandardError=journal
