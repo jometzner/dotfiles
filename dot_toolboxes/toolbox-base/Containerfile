@@ -14,5 +14,6 @@ RUN dnf -y update && \
                     htop \
                     inotify-tools \
                     libxcrypt-compat \
-                    ansible
+                    ansible \
+                    dig
 RUN dnf clean all
