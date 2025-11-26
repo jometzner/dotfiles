@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily GNOME extensions Sync Timer
+Requires=sync-gnome-extensions.service
+
+[Timer]
+OnCalendar=weekly
+Persistent=true
+
+[Install]
+WantedBy=timers.target

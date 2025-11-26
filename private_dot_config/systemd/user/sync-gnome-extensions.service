@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync GNOME extensions from YAML configuration
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/sync-gnome-extensions.sh
+StandardOutput=journal
+StandardError=journal

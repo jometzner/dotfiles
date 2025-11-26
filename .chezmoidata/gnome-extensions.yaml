@@ -1,11 +1,17 @@
 extensions:
-  fedora:
+  enabled:
     - appindicatorsupport@rgcjonas.gmail.com
     - auto-move-windows@gnome-shell-extensions.gcampax.github.com
     - clipboard-indicator@tudmotu.com
+    - kiwimenu@kemma
+    - tasks-in-panel@fthx
+    - just-perfection-desktop@just-perfection
     - workspace-indicator@gnome-shell-extensions.gcampax.github.com
-    - apps-menu@gnome-shell-extensions.gcampax.github.com
     - background-logo@fedorahosted.org
     - launch-new-instance@gnome-shell-extensions.gcampax.github.com
     - places-menu@gnome-shell-extensions.gcampax.github.com
+
+  disabled:
+    - apps-menu@gnome-shell-extensions.gcampax.github.com
     - window-list@gnome-shell-extensions.gcampax.github.com
+
