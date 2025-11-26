@@ -1,0 +1,70 @@
+#!/bin/bash
+set -euo pipefail
+# GNOME shell version
+shell_version=$(gnome-shell --version | cut -d' ' -f3)
+
+EXTENSIONS_FILE="{{ .chezmoi.sourceDir }}/.chezmoidata/gnome-extensions.yaml"
+
+if [ ! -f "$EXTENSIONS_FILE" ]; then
+    echo "Error: $EXTENSIONS_FILE not found"
+    exit 1
+fi
+
+# Get currently installed extensions with their state
+mapfile -t INSTALLED < <(gnome-extensions list)
+
+# Parse YAML to get desired extensions per state (enabled/disabled)
+declare -A DESIRED
+while IFS= read -r line; do
+    if [[ $line =~ ^[[:space:]]*-[[:space:]]+(.+)$ ]]; then
+        ext="${BASH_REMATCH[1]}"
+        DESIRED["$current_state:$ext"]=1
+    elif [[ $line =~ ^[[:space:]]*([a-zA-Z0-9_-]+):[[:space:]]*$ ]]; then
+        current_state="${BASH_REMATCH[1]}"
+    fi
+done < "$EXTENSIONS_FILE"
+
+# Apply desired state for extensions in YAML
+for key in "${!DESIRED[@]}"; do
+    IFS=: read -r state ext <<< "$key"
+    if printf '%s\n' "${INSTALLED[@]}" | grep -q "^${ext}$"; then
+        if [[ "$state" == "enabled" ]]; then
+            echo "Enabling $ext..."
+            gnome-extensions enable "$ext" || echo "Failed to enable $ext"
+        elif [[ "$state" == "disabled" ]]; then
+            echo "Disabling $ext..."
+            gnome-extensions disable "$ext" || echo "Failed to disable $ext"
+        fi
+    elif [[ "$state" == "enabled" ]]; then
+        echo "Installing and enabling $ext..."
+        # Fetch extension info (for the given shell version)
+        info_json=$(curl -sS "https://extensions.gnome.org/extension-info/?uuid=$ext&shell_version=$shell_version")
+        # Extract download url from the json with jq
+        download_url=$(echo $info_json | jq ".download_url" --raw-output)
+        gnome-extensions install --force "https://extensions.gnome.org$download_url" || echo "Failed to install $ext"
+    fi
+done
+
+# Update YAML with current extension states
+declare -A STATES
+for ext in "${INSTALLED[@]}"; do
+    if gnome-extensions info "$ext" | grep -q "Enabled: Yes"; then
+        state="enabled"
+    else
+        state="disabled"
+    fi
+    STATES["$state"]+="    - $ext"$'\n'
+done
+
+# Rebuild YAML file
+{
+    echo "extensions:"
+    for state in enabled disabled; do
+        if [[ -n "${STATES[$state]:-}" ]]; then
+            echo "  $state:"
+            echo "${STATES[$state]}"
+        fi
+    done
+} > "$EXTENSIONS_FILE"
+
+echo "Extension synchronization complete"
