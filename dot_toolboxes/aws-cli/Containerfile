@@ -1,5 +1,5 @@
 ARG VERSION=42
 FROM quay.io/jometzner/toolbox-base:${VERSION}
 
-RUN dnf -y install awscli2 python3-pip && \
+RUN dnf -y install awscli2 python3-pip https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm && \
     dnf clean all
