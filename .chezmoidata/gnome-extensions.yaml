@@ -1,15 +1,15 @@
 extensions:
   enabled:
-    - appindicatorsupport@rgcjonas.gmail.com
-    - auto-move-windows@gnome-shell-extensions.gcampax.github.com
-    - clipboard-indicator@tudmotu.com
-    - kiwimenu@kemma
-    - tasks-in-panel@fthx
-    - just-perfection-desktop@just-perfection
-    - workspace-indicator@gnome-shell-extensions.gcampax.github.com
-    - background-logo@fedorahosted.org
     - launch-new-instance@gnome-shell-extensions.gcampax.github.com
+    - tasks-in-panel@fthx
+    - workspace-indicator@gnome-shell-extensions.gcampax.github.com
+    - just-perfection-desktop@just-perfection
+    - clipboard-indicator@tudmotu.com
+    - appindicatorsupport@rgcjonas.gmail.com
+    - background-logo@fedorahosted.org
     - places-menu@gnome-shell-extensions.gcampax.github.com
+    - auto-move-windows@gnome-shell-extensions.gcampax.github.com
+    - kiwimenu@kemma
 
   disabled:
     - apps-menu@gnome-shell-extensions.gcampax.github.com
