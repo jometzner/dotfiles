@@ -20,6 +20,19 @@ sso_account_id = {{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 2).va
 sso_role_name = AdministratorAccess
 region = eu-west-1
 
+[profile indi-shs]
+sso_session = indi-sso
+sso_account_id = {{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 3).value 0) }}
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile salmon]
+sso_session = indi-sso
+sso_account_id = {{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").custom 4).value 0) }}
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+
 [sso-session indi-sso]
 sso_start_url = {{ (index (index (keeper "ggXs7AGPs8Cs3yA-7aDZ7Q").fields 3).value 0) }}
 sso_region = eu-central-1
