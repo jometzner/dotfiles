@@ -1,0 +1,8 @@
+[Pod]
+PublishPort=127.0.0.1:8983:8983
+PublishPort=127.0.0.1:9983:9983
+PublishPort=127.0.0.1:1521:1521
+PublishPort=127.0.0.1:5500:5500
+PublishPort=127.0.0.1:1025:1025
+PublishPort=127.0.0.1:8025:8025
+

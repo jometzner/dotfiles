@@ -1,0 +1,6 @@
+
+[Container]
+Annotation=io.kubernetes.cri-o.SandboxID=4a6726105e17598da14fe07f337efc3de09d8d6cdb19679f4e5ef7b15e366012
+Image=localhost/oracle-intershop:prep
+ContainerName=oracle1
+Pod=ish_gradle1.pod

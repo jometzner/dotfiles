@@ -1,0 +1,8 @@
+
+[Container]
+Annotation=io.kubernetes.cri-o.SandboxID=4a6726105e17598da14fe07f337efc3de09d8d6cdb19679f4e5ef7b15e366012
+Image=docker.io/library/solr:8
+ContainerName=solr1
+Exec=solr start -f -cloud -h {{ .chezmoi.hostname }}.jometzner.de -a -Dsolr.disableConfigSetsCreateAuthChecks=true -Djute.maxbuffer=2097152
+Mount=type=volume,src=gradle1_solr1_data,destination=/var/solr
+Pod=ish_gradle1.pod
