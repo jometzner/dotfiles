@@ -24,6 +24,7 @@ flatpaks:
     - be.alexandervanhee.gradia
     - com.mattermost.Desktop
     - com.vivaldi.Vivaldi
+    - dev.zed.Zed
     - io.dbeaver.DBeaverCommunity
     - io.github.alainm23.planify
     - io.github.flattool.Ignition
