@@ -1,0 +1,12 @@
+
+[Container]
+PublishPort=3001:3001
+Image=docker.io/louislam/uptime-kuma:2
+ContainerName=uptime-kuma
+Mount=type=volume,src=uptime-kuma,destination=/app/data
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
