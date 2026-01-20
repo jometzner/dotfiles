@@ -1,0 +1,6 @@
+#!/bin/bash
+set -ev pipefail
+keeper --config ~/config.json download-attachment Hoster/jometzner.de\ SSL\ Zertifikat --out-dir {{ .chezmoi.homeDir }}/work/
+openssl ec -outform pem -in {{ .chezmoi.homeDir }}/work/_.jometzner.de_private_key.key -out {{ .chezmoi.homeDir }}/work/server.key
+openssl x509 -outform pem -in {{ .chezmoi.homeDir }}/work/jometzner.de_ssl_certificate.cer -out {{ .chezmoi.homeDir }}/work/server.crt
+rm {{ .chezmoi.homeDir }}/work/_.jometzner.de_private_key.key {{ .chezmoi.homeDir }}/work/jometzner.de_ssl_certificate.cer
