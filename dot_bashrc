@@ -30,3 +30,5 @@ fi
 if [[ -f ~/.sdkman/bin/sdkman-init.sh ]]; then
    source ~/.sdkman/bin/sdkman-init.sh
 fi
+
+alias toolbox='SHELL=/usr/bin/zsh toolbox'
