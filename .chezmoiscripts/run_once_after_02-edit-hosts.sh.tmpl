@@ -15,10 +15,7 @@ CUSTOM_HOSTS_CONTENT=$(cat << 'EOF'
 # For historical reasons, localhost precedes localhost.localdomain:
 127.0.0.1   {{ .chezmoi.hostname }}.jometzner.de localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         {{ .chezmoi.hostname }}.jometzner.de localhost localhost.localdomain localhost6 localhost6.localdomain6
-#192.168.1.111  maracuja2 maracuja2.jometzner.de
-198.18.7.1  maracuja2 maracuja2.jometzner.de
-198.18.7.1  uptime.jometzner.de
-198.18.7.1  paperless.jometzner.de
+192.168.1.111  maracuja2.jometzner.de
 # See hosts(5) for proper format and other examples:
 # 192.168.1.10 foo.example.org foo
 # 192.168.1.13 bar.example.org bar
