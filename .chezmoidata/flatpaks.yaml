@@ -31,8 +31,10 @@ flatpaks:
     - io.github.java_decompiler.jd-gui
     - io.github.kolunmi.Bazaar
     - io.podman_desktop.PodmanDesktop
+    - io.scottlabs.reManager
     - me.iepure.devtoolbox
     - org.eclipse.Java
+    - org.signal.Signal
     - page.codeberg.JakobDev.jdDesktopEntryEdit
     - page.tesk.Refine
 
