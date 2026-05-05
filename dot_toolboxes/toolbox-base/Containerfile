@@ -15,5 +15,6 @@ RUN dnf -y update && \
                     inotify-tools \
                     libxcrypt-compat \
                     ansible \
+                    nodejs24 \
                     dig
 RUN dnf clean all
