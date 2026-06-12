@@ -10,7 +10,7 @@ Darwin)
 Linux)
     # commands to install password-manager-binary on Linux
     type pip3 >/dev/null 2>&1 || sudo dnf install -y python3-pip
-    pip3 install keepercommander
+    pip3 install keepercommander==18.0.7
     keeper --config ~/config.json this-device persistent-login on
     ;;
 *)
