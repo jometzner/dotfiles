@@ -18,5 +18,3 @@ Linux)
     exit 1
     ;;
 esac
-
-

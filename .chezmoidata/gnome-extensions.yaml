@@ -14,4 +14,3 @@ extensions:
   disabled:
     - apps-menu@gnome-shell-extensions.gcampax.github.com
     - window-list@gnome-shell-extensions.gcampax.github.com
-
