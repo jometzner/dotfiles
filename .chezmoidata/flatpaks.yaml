@@ -23,6 +23,8 @@ flatpaks:
     - app.rednotebook.RedNotebook
     - be.alexandervanhee.gradia
     - com.mattermost.Desktop
+    - com.sweethome3d.Sweethome3d
+    - com.usebruno.Bruno
     - com.vivaldi.Vivaldi
     - dev.zed.Zed
     - io.dbeaver.DBeaverCommunity
@@ -33,7 +35,8 @@ flatpaks:
     - io.podman_desktop.PodmanDesktop
     - io.scottlabs.reManager
     - me.iepure.devtoolbox
-    - org.eclipse.Java
+    - org.apache.jmeter
+    - org.onlyoffice.desktopeditors
     - org.signal.Signal
     - page.codeberg.JakobDev.jdDesktopEntryEdit
     - page.tesk.Refine
