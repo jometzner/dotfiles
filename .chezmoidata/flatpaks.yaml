@@ -36,6 +36,7 @@ flatpaks:
     - io.scottlabs.reManager
     - me.iepure.devtoolbox
     - org.apache.jmeter
+    - org.gimp.GIMP
     - org.onlyoffice.desktopeditors
     - org.signal.Signal
     - page.codeberg.JakobDev.jdDesktopEntryEdit
